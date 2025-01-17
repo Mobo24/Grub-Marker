@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `name` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE IF NOT EXISTS `foodtruck` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `name` VARCHAR(255) NOT NULL,
+  `foodtype` VARCHAR(255) NOT NULL,
+  `latitude` DECIMAL(10, 8) NOT NULL,
+  `longitude` DECIMAL(11, 8) NOT NULL,
+  `opentime` TIME NOT NULL,
+  `closetime` TIME NOT NULL
+);
