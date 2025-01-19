@@ -3,56 +3,64 @@ package dev.GrubMarker.foodtruck;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
-
-import dev.GrubMarker.foodtruck.foodtruckExceptions.FoodTruckCouldNotBeUpdated;
-import dev.GrubMarker.foodtruck.foodtruckExceptions.FoodTruckNotFoundException;
-import jakarta.annotation.PostConstruct;
+import org.springframework.util.Assert;
 
 @Repository
 public class FoodTruckRepository {
     private List<FoodTruck> foodTrucks = new ArrayList<>();
 
+    private final JdbcClient jdbcClient;
+
+    public FoodTruckRepository(JdbcClient jdbcClient){
+        this.jdbcClient = jdbcClient;
+    }
+
     //getFoodTrucks method
-    List<FoodTruck> getFoodTrucks() {
+    public List<FoodTruck> getFoodTrucks() {
+        foodTrucks = jdbcClient.sql("SELECT * FROM FOODTRUCK")
+            .query(FoodTruck.class) // map to class
+            .list();
         return foodTrucks;
     }
+
     //getFoodTruckById method
     Optional <FoodTruck> getFoodTruckById(int id) {
-        return foodTrucks.stream()
-            .filter(foodTruck -> foodTruck.id() == id)
-            .findFirst();
+        return jdbcClient.sql("SELECT * FROM FOODTRUCK WHERE ID = :id")
+            .param("id", id)
+            .query(FoodTruck.class) // map to class
+            .optional();
     }
 
-    void create(FoodTruck foodTruck) {
-        foodTrucks.add(foodTruck);
+    public void create(FoodTruck foodTruck) {
+        var output = jdbcClient.sql("INSERT INTO FOODTRUCK (NAME, FOODTYPE, LATITUDE, LONGITUDE, OPENTIME, CLOSETIME) VALUES (:name, :foodType, :latitude, :longitude, :openTime, :closeTime)")
+            .param("name", foodTruck.name())
+            .param("foodType", foodTruck.foodType())
+            .param("latitude", foodTruck.latitude())
+            .param("longitude", foodTruck.longitude())
+            .param("openTime", foodTruck.openTime())
+            .param("closeTime", foodTruck.closeTime())
+            .update();
+
+        Assert.state(output == 1, "could not create the food truck");
     }
 
-    void updateFoodTruck(FoodTruck foodTruck, Integer id) {
-        Optional <FoodTruck> foodTruckToUpdate = getFoodTruckById(id);
-        if (!foodTruckToUpdate.isPresent()){
-            throw new FoodTruckCouldNotBeUpdated(id);
-        }
-        else{
-            foodTrucks.set(foodTrucks.indexOf(foodTruckToUpdate.get()), foodTruck);
-        }
+    void updateFoodTruck(FoodTruck foodTruck,String field, Object value, int id) {
+            jdbcClient.sql("UPDATE FOODTRUCK SET :field = :value WHERE ID = :id")
+            .update();
     }
     void deleteFoodTruck(Integer id) {
-        Optional <FoodTruck> foodTruckToDelete = getFoodTruckById(id);
-        if (!foodTruckToDelete.isPresent()){
-            throw new FoodTruckNotFoundException(id);
-        }
-        else{
-            foodTrucks.remove(foodTruckToDelete.get());
-        }
+            jdbcClient.sql("UPDATE FOODTRUCK SET :field = :value WHERE ID = :id")
+            .update();
     }
 
-    @PostConstruct
-    private void init(){
-        foodTrucks.add(new FoodTruck("Taco Truck", FoodType.MEXICAN, 37.7749, -122.4194, null, null,1));
-        foodTrucks.add(new FoodTruck("Pizza Truck", FoodType.AMERICAN, 37.7749, -122.4194, null, null,1));
-        foodTrucks.add(new FoodTruck("Burger Truck", FoodType.FAST_FOOD, 37.7749, -122.4194, null, null,1));
+    Integer count() {
+        return jdbcClient.sql("SELECT COUNT(*) FROM FOODTRUCK")
+            .update();
     }
-    
+    public void saveAll(List<FoodTruck> foodtruck) {
+        foodtruck.stream().forEach(this::create);
+    }
+
 }

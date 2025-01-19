@@ -3,6 +3,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,7 @@ import jakarta.validation.Valid;
 @RequestMapping("/api/v1/foodtruck")
 public class FoodTruckController {
     private final FoodTruckRepository foodTruckStorage;
+    
     public FoodTruckController(FoodTruckRepository foodTruckStorage) {
         this.foodTruckStorage = foodTruckStorage;
     }
@@ -32,7 +34,6 @@ public class FoodTruckController {
         if (!foodTruck.isPresent()){
             throw new FoodTruckNotFoundException(id);
         }
-
         return foodTruck.get();
     }
     @ResponseStatus(HttpStatus.CREATED)
@@ -41,17 +42,17 @@ public class FoodTruckController {
         foodTruckStorage.create(foodTruck);
     }
 
-    //put
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PutMapping("updateFoodtruck")
-    void updateFoodTruck(@Valid @RequestBody Integer id, @PathVariable FoodTruck foodTruck) {
-        foodTruckStorage.updateFoodTruck(foodTruck, id);
-    }
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PutMapping("deleteFoodtruck")
-    void deleteFoodTruck(@RequestBody Integer id) {
-        foodTruckStorage.deleteFoodTruck(id);
-    }
+    // //put
+    // @ResponseStatus(HttpStatus.NO_CONTENT)
+    // @PutMapping("updateFoodtruck")
+    // void updateFoodTruck(@Valid @RequestBody Integer id, @PathVariable FoodTruck foodTruck) {
+    //     foodTruckStorage.updateFoodTruck(foodTruck, id);
+    // }
+    // @ResponseStatus(HttpStatus.NO_CONTENT)
+    // @PutMapping("deleteFoodtruck")
+    // void deleteFoodTruck(@RequestBody Integer id) {
+    //     foodTruckStorage.deleteFoodTruck(id);
+    // }
     
 } 
 

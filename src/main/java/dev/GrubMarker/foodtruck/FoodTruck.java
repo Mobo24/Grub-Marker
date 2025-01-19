@@ -1,7 +1,5 @@
 package dev.GrubMarker.foodtruck;
 import java.time.LocalTime;
-
-import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotEmpty;
 
 public record FoodTruck(
