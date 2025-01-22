@@ -1,10 +1,9 @@
-/Users/mobolaji/Documents/GitHub/Grub-Marker/src/main/java/dev/GrubMarker/Application.java
-/Users/mobolaji/Documents/GitHub/Grub-Marker/src/main/java/dev/GrubMarker/foodtruck/FoodTruck.java
-/Users/mobolaji/Documents/GitHub/Grub-Marker/src/main/java/dev/GrubMarker/foodtruck/FoodTruckController.java
-/Users/mobolaji/Documents/GitHub/Grub-Marker/src/main/java/dev/GrubMarker/foodtruck/FoodTruckRepository.java
-/Users/mobolaji/Documents/GitHub/Grub-Marker/src/main/java/dev/GrubMarker/foodtruck/FoodType.java
+/Users/mobolaji/Documents/GitHub/Grub-Marker/src/main/java/dev/GrubMarker/foodtruck/FoodTruckDataJsonLoader.java
 /Users/mobolaji/Documents/GitHub/Grub-Marker/src/main/java/dev/GrubMarker/foodtruck/foodtruckExceptions/FoodTruckCouldNotBeUpdated.java
+/Users/mobolaji/Documents/GitHub/Grub-Marker/src/main/java/dev/GrubMarker/foodtruck/FoodTrucks.java
 /Users/mobolaji/Documents/GitHub/Grub-Marker/src/main/java/dev/GrubMarker/foodtruck/foodtruckExceptions/FoodTruckNotFoundException.java
-/Users/mobolaji/Documents/GitHub/Grub-Marker/src/main/java/dev/GrubMarker/location/Location.java
-/Users/mobolaji/Documents/GitHub/Grub-Marker/src/main/java/dev/GrubMarker/location/LocationController.java
-/Users/mobolaji/Documents/GitHub/Grub-Marker/src/main/java/dev/GrubMarker/location/LocationType.java
+/Users/mobolaji/Documents/GitHub/Grub-Marker/src/main/java/dev/GrubMarker/foodtruck/FoodType.java
+/Users/mobolaji/Documents/GitHub/Grub-Marker/src/main/java/dev/GrubMarker/foodtruck/FoodTruckController.java
+/Users/mobolaji/Documents/GitHub/Grub-Marker/src/main/java/dev/GrubMarker/foodtruck/FoodTruck.java
+/Users/mobolaji/Documents/GitHub/Grub-Marker/src/main/java/dev/GrubMarker/foodtruck/FoodTruckRepository.java
+/Users/mobolaji/Documents/GitHub/Grub-Marker/src/main/java/dev/GrubMarker/Application.java

@@ -1,66 +1,67 @@
-[
-    {
-      "id": 1,
-      "name": "Tasty Tacos",
-      "foodType": "Mexican",
-      "latitude": 34.052235,
-      "longitude": -118.243683,
-      "openTime": "10:00:00",
-      "closeTime": "20:00:00"
-    },
-    {
-      "id": 2,
-      "name": "Burger Bliss",
-      "foodType": "American",
-      "latitude": 40.712776,
-      "longitude": -74.005974,
-      "openTime": "11:00:00",
-      "closeTime": "22:00:00"
-    },
-    {
-      "id": 3,
-      "name": "Sushi Stop",
-      "foodType": "Japanese",
-      "latitude": 37.774929,
-      "longitude": -122.419418,
-      "openTime": "12:00:00",
-      "closeTime": "21:00:00"
-    },
-    {
-      "id": 4,
-      "name": "Pizza Paradise",
-      "foodType": "Italian",
-      "latitude": 41.878113,
-      "longitude": -87.629799,
-      "openTime": "09:00:00",
-      "closeTime": "23:00:00"
-    },
-    {
-      "id": 5,
-      "name": "Curry Corner",
-      "foodType": "Indian",
-      "latitude": 29.760427,
-      "longitude": -95.369804,
-      "openTime": "08:00:00",
-      "closeTime": "18:00:00"
-    },
-    {
-      "id": 6,
-      "name": "Waffle Wagon",
-      "foodType": "Belgian",
-      "latitude": 39.739236,
-      "longitude": -104.990251,
-      "openTime": "06:00:00",
-      "closeTime": "14:00:00"
-    },
-    {
-      "id": 7,
-      "name": "BBQ Barn",
-      "foodType": "Barbecue",
-      "latitude": 32.776665,
-      "longitude": -96.796989,
-      "openTime": "12:00:00",
-      "closeTime": "22:00:00"
+{
+    "foodtrucks":[
+        {
+          "id": 1,
+          "name": "Tasty Tacos",
+          "foodType": "Mexican",
+          "latitude": 34.052235,
+          "longitude": -118.243683,
+          "openTime": "10:00:00",
+          "closeTime": "20:00:00"
+        },
+        {
+          "id": 2,
+          "name": "Burger Bliss",
+          "foodType": "American",
+          "latitude": 40.712776,
+          "longitude": -74.005974,
+          "openTime": "11:00:00",
+          "closeTime": "22:00:00"
+        },
+        {
+          "id": 3,
+          "name": "Sushi Stop",
+          "foodType": "Japanese",
+          "latitude": 37.774929,
+          "longitude": -122.419418,
+          "openTime": "12:00:00",
+          "closeTime": "21:00:00"
+        },
+        {
+          "id": 4,
+          "name": "Pizza Paradise",
+          "foodType": "Italian",
+          "latitude": 41.878113,
+          "longitude": -87.629799,
+          "openTime": "09:00:00",
+          "closeTime": "23:00:00"
+        },
+        {
+          "id": 5,
+          "name": "Curry Corner",
+          "foodType": "Indian",
+          "latitude": 29.760427,
+          "longitude": -95.369804,
+          "openTime": "08:00:00",
+          "closeTime": "18:00:00"
+        },
+        {
+          "id": 6,
+          "name": "Waffle Wagon",
+          "foodType": "Belgian",
+          "latitude": 39.739236,
+          "longitude": -104.990251,
+          "openTime": "06:00:00",
+          "closeTime": "14:00:00"
+        },
+        {
+          "id": 7,
+          "name": "BBQ Barn",
+          "foodType": "Barbecue",
+          "latitude": 32.776665,
+          "longitude": -96.796989,
+          "openTime": "12:00:00",
+          "closeTime": "22:00:00"
+        }
+      ]
     }
-  ]
-  

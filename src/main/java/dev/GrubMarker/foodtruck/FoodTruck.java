@@ -9,7 +9,9 @@ public record FoodTruck(
     FoodType foodType, 
     double latitude, 
     double longitude, 
+    @NotEmpty
     LocalTime openTime,
+    @NotEmpty
     LocalTime closeTime,
     @NotEmpty 
     Integer id

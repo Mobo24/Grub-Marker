@@ -25,9 +25,10 @@ public class FoodTruckDataJsonLoader implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         if(foodTruckRepository.count() == 0) {
-            try (InputStream inputStream = TypeReference.class.getResourceAsStream("/data/foodtrucks.json")) {
-                foodtrucks allFoodTrucks = objectMapper.readValue(inputStream, foodtrucks.class);
-                log.info("Reading food tuck data from file ",  allFoodTrucks.foodtrucks().size());
+            try (InputStream inputStream = TypeReference.class.getResourceAsStream("src/main/resources/data/foodtrucks.json")) {
+                System.out.println("inputStream: " + inputStream);
+                FoodTrucks allFoodTrucks = objectMapper.readValue(inputStream, FoodTrucks.class);
+                log.info("Reading food truck data from file ",  allFoodTrucks.foodtrucks().size());
                 foodTruckRepository.saveAll(allFoodTrucks.foodtrucks());
             } catch (IOException e) {
                throw new RuntimeException("Could not load food truck data", e);

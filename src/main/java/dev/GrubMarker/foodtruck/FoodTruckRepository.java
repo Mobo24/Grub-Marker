@@ -36,7 +36,7 @@ public class FoodTruckRepository {
     public void create(FoodTruck foodTruck) {
         var output = jdbcClient.sql("INSERT INTO FOODTRUCK (NAME, FOODTYPE, LATITUDE, LONGITUDE, OPENTIME, CLOSETIME) VALUES (:name, :foodType, :latitude, :longitude, :openTime, :closeTime)")
             .param("name", foodTruck.name())
-            .param("foodType", foodTruck.foodType())
+            .param("foodType", foodTruck.foodType().toString())
             .param("latitude", foodTruck.latitude())
             .param("longitude", foodTruck.longitude())
             .param("openTime", foodTruck.openTime())
@@ -56,9 +56,9 @@ public class FoodTruckRepository {
     }
 
     Integer count() {
-        return jdbcClient.sql("SELECT COUNT(*) FROM FOODTRUCK")
-            .update();
+        return jdbcClient.sql("SELECT COUNT(*) FROM FOODTRUCK").query().listOfRows().size();  
     }
+
     public void saveAll(List<FoodTruck> foodtruck) {
         foodtruck.stream().forEach(this::create);
     }
